@@ -97,13 +97,16 @@ var won = false;
 var guess = Math.floor((max + min) / 2)
 document.getElementById("computerGuess").innerHTML = guess;
 
-
-
-// when the user clicks on "to high" then we need to guess lower and run the guess again with the new max number
-
-document.getElementbyId("high").onclick = function(){
+function(high){
       max= guess + 1;
     }
+function(low){
+  max= guess
+}
+// when the user clicks on "to high" then we need to guess lower and run the guess again with the new max number
+
+document.getElementbyId("high").onclick = 
+
 
 // when the user clicks on "to low" then we need to guess higher and run the guess again with the new min number
 document.getElementById("low").onclick = function(){
