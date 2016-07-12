@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>algorithms_5</title>
+	<meta charset="usf-8">
+	<style type="text/css">
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+.guess {font-size: 40px;}
+	</style>
+}
+</head>
+<body>
+<div class="container">
+	<h3>Welcome to the Guessing game, where we try to guess the number in your head.</h3>
+	Pick a number between 1 and 100 and hold on to it. Then using the drop down menu tell us whether you number is higher or lower than the one in your head until we get it right. 
+	
+	<div class = "Guess" id= "computerGuess">
+	<h2>Our guess is</h2>
+
+	</div>
+</div>
+
+<div class="dropdown" id= "dropdown">
+  <button onclick="myFunction()" class="dropbtn">Is our guess?</button>
+  <div id="myDropdown" class="dropdown-content">
+    <button class = "high" id="high">to high</button>
+    <button class = "low" id= "low">to low</buttom>
+    <button class = "yes" id= "yes">Yes You got it right!</button>
+  </div>
+</div>
+
+
+
+
+
+	<script>
+
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+	window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+// Our first guess is the max number / 2
+
+var min = 1;
+var max = 101;
+var won = false;
+var guess = Math.floor((max + min) / 2)
+document.getElementById("computerGuess").innerHTML = guess;
+
+
+
+// when the user clicks on "to high" then we need to guess lower and run the guess again with the new max number
+
+document.getElementbyId("high").onclick = function(){
+      max= guess + 1;
+    }
+
+// when the user clicks on "to low" then we need to guess higher and run the guess again with the new min number
+document.getElementById("low").onclick = function(){
+    max= guess;
+}
+// When the user clicks on yes the write "houray!" 
+yes.onclick = function(){
+  won = true
+  document.getElementById("computerGuess").innerHtml = "YIPEE!!"
+}
+
+// function guess(x){
+//     var min = 1;
+// var max = 101;
+// var won = false;
+// var guess = Math.floor((max + min) / 2);
+// }
+
+ 
+// while (!won) {
+//  if(function high.onclick())
+
+// if (response == "H") {
+//     max = guess + 1;
+// else if (response == "L") {
+//       min = guess;
+//   }
+//   function buttonClicked(Answers){
+//   var a = square(3);
+//     Answers.innerHTML = a 
+
+//   var b = square(100);
+//     Answers.innerHTML += "<br>" + b;
+
+//   }
+//   document.getElementById("high").onclick = function(){
+//     buttonClicked(document.getElementById("Answers"));
+//   }
+
+// Function guess(x){
+// var min = 1;
+// var max = 101;
+// var won = false;
+// var guess = Math.floor((max + min) / 2);
+ 
+// while (!won) {
+// content += guess;
+
+//     if (response == "H") {
+//     max = guess + 1;
+//     }
+//     else if (response == "L") {
+//       min = guess;
+//     }
+//     else {
+//       won = true;
+//     }
+//   }
+// }
+//   content = 
+//   document.getElementbyId(high).onclick = guess
+
+//   console.log(guess)
+// //   window.onclick = function(high) {
+// //   if (!high.target.matches('.high')) {.getElementById("computerGuess").innerHTML = content
+// //   }
+
+// //   window.onclick = function(low) {
+// //   if (!low.target.matches('.low')) {.getElementById("computerGuess").innerHTML = content
+// //   }
+
+// //     window.onclick = function(yes) {
+// //   if (!yes.target.matches('.yes')) {
+// //     .getElementById("computerGuess").innerHTML = content
+// //   }
+
+
+	</script>
+
+</body>
+</html>
